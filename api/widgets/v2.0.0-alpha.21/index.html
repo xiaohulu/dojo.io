@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@dojo/widgets</title>
+	<title>typescript</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="/images/favicons/favicon.ico">
@@ -37,7 +37,7 @@
 					<li class="state loading">Preparing search index...</li>
 					<li class="state failure">The search index is not available</li>
 				</ul>
-				<a href="index.html " class="title">@dojo/widgets</a>
+				<a href="index.html " class="title">typescript</a>
 			</div>
 			<div class="table-cell" id="tsd-widgets">
 				<div id="tsd-filter">
@@ -53,6 +53,8 @@
 						</div>
 						<input type="checkbox" id="tsd-filter-inherited" checked />
 						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 					</div>
 				</div>
 				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -66,66 +68,17 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>  @dojo/widgets
+			<h1>  typescript
 			</h1>
 		</div>
 	</div>
 	</div>    <div class="row content-container">
 	<div class="col-8 col-content">
 		<div class="tsd-panel tsd-typography">
-			<h1 id="-dojo-widgets">@dojo/widgets</h1>
-			<!-- TODO: change and uncomment
-[![Build Status](https://travis-ci.org/dojo/<< package-name >>.svg?branch=master)](https://travis-ci.org/dojo/<< package-name >>)
-[![codecov](https://codecov.io/gh/dojo/<< package-name >>/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/<< package-name >>)
-[![npm version](https://badge.fury.io/js/dojo-<< package-name >>.svg)](http://badge.fury.io/js/dojo-<< package-name >>)
--->
-			<p>A suite of pre-built Dojo 2 widgets, ready to use in your application. These widgets are built using <a href="https://github.com/dojo/widget-core">(@dojo/widget-core)</a>.</p>
-			<p><strong>WARNING</strong> This is <em>alpha</em> software. It is not yet production ready, so you should use at your own risk.</p>
-			<ul>
-				<li><a href="#usage">Usage</a></li>
-				<li><a href="#features">Features</a></li>
-				<li><a href="#conventions">Conventions</a><ul>
-						<li><a href="#icons">Icons</a></li>
-						<li><a href="#coding-conventions">Coding conventions</a></li>
-					</ul>
-				</li>
-				<li><a href="#how-do-i-contribute">How Do I Contribute?</a><ul>
-						<li><a href="#installation">Installation</a></li>
-						<li><a href="#testing">Testing</a></li>
-					</ul>
-				</li>
-				<li><a href="#licensing-information">Licensing Information</a></li>
-			</ul>
-			<h2 id="usage">Usage</h2>
-			<p>To use <code>@dojo/widgets</code>, install the package:</p>
-			<pre><code class="lang-bash">npm install @dojo/widgets
-</code></pre>
-			<h2 id="features">Features</h2>
-			<p>Dojo 2 widgets are supported in all evergreen browsers (IE11+, Chrome, Firefox, Safari) as well as popular mobile browsers (Mobile Safari, Chrome on Android).</p>
-			<h2 id="conventions">Conventions</h2>
-			<h3 id="icons">Icons</h3>
-			<p>We use <a href="http://fontawesome.io/">font awesome</a> for icons.</p>
-			<h3 id="coding-conventions">Coding conventions</h3>
-			<p><code>px vs em</code> - we specify font sizes in <code>px</code>. When creating a widget, spacing (margin, padding) should be specified using <code>px</code> unless the design calls for proportional spacing, in which case <code>em</code> can be used.</p>
-			<h2 id="how-do-i-contribute-">How do I contribute?</h2>
-			<p>We appreciate your interest!  Please see the <a href="https://github.com/dojo/meta#readme">Dojo 2 Meta Repository</a> for the
-			Contributing Guidelines and Style Guide.</p>
-			<h3 id="installation">Installation</h3>
-			<p>To start working with this package, clone the repository and run <code>npm install</code>.</p>
-			<p>In order to build the project run <code>grunt dev</code> or <code>grunt dist</code>.</p>
-			<h3 id="testing">Testing</h3>
-			<p>Test cases MUST be written using <a href="https://theintern.github.io">Intern</a> using the Object test interface and Assert assertion interface.</p>
-			<p>90% branch coverage MUST be provided for all code submitted to this repository, as reported by istanbul’s combined coverage results for all supported platforms.</p>
-			<p>To test locally in node run:</p>
-			<p><code>grunt test</code></p>
-			<p>To test against browsers with a local selenium server run:</p>
-			<p><code>grunt test:local</code></p>
-			<p>To test against BrowserStack or Sauce Labs run:</p>
-			<p><code>grunt test:browserstack</code></p>
-			<p>or</p>
-			<p><code>grunt test:saucelabs</code></p>
-			<h2 id="licensing-information">Licensing information</h2>
-			<p>© 2017 <a href="https://js.foundation/">JS Foundation</a>. <a href="http://opensource.org/licenses/BSD-3-Clause">New BSD</a> license.</p>
+			<h1 id="read-this-">Read This!</h1>
+			<p><strong>These files are not meant to be edited by hand.</strong>
+				If you need to make modifications, the respective files should be changed within the repository&#39;s top-level <code>src</code> directory.
+			Running <code>jake LKG</code> will then appropriately update the files in this directory.</p>
 		</div>
 	</div>
 	<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -134,12 +87,24 @@
 				<li class="globals  ">
 					<a href="globals.html"><em>Globals</em></a>
 				</li>
+				<li class="label tsd-is-external">
+					<span>Externals</span>
+				</li>
+				<li class=" tsd-kind-module tsd-is-external">
+					<a href="modules/shim.html">Shim</a>
+				</li>
 			</ul>
 		</nav>
 		<nav class="tsd-navigation secondary menu-sticky">
 			<ul class="before-current">
 				<li class=" tsd-kind-enum">
 					<a href="enums/align.html" class="tsd-kind-icon">Align</a>
+				</li>
+				<li class=" tsd-kind-enum tsd-is-external">
+					<a href="enums/attachtype.html" class="tsd-kind-icon">Attach<wbr>Type</a>
+				</li>
+				<li class=" tsd-kind-enum tsd-is-external">
+					<a href="enums/projectorattachstate.html" class="tsd-kind-icon">Projector<wbr>Attach<wbr>State</a>
 				</li>
 				<li class=" tsd-kind-class">
 					<a href="classes/app.html" class="tsd-kind-icon">App</a>
@@ -150,14 +115,32 @@
 				<li class=" tsd-kind-class">
 					<a href="classes/checkbox.html" class="tsd-kind-icon">Checkbox</a>
 				</li>
+				<li class=" tsd-kind-class tsd-is-external">
+					<a href="classes/destroyable.html" class="tsd-kind-icon">Destroyable</a>
+				</li>
 				<li class=" tsd-kind-class">
 					<a href="classes/dialog.html" class="tsd-kind-icon">Dialog</a>
+				</li>
+				<li class=" tsd-kind-class tsd-is-external">
+					<a href="classes/evented.html" class="tsd-kind-icon">Evented</a>
 				</li>
 				<li class=" tsd-kind-class">
 					<a href="classes/label.html" class="tsd-kind-icon">Label</a>
 				</li>
+				<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-external">
+					<a href="classes/map.html" class="tsd-kind-icon">Map</a>
+				</li>
+				<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-external">
+					<a href="classes/observable.html" class="tsd-kind-icon">Observable</a>
+				</li>
+				<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-external">
+					<a href="classes/promise.html" class="tsd-kind-icon">Promise</a>
+				</li>
 				<li class=" tsd-kind-class">
 					<a href="classes/radio.html" class="tsd-kind-icon">Radio</a>
+				</li>
+				<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-external">
+					<a href="classes/shimiterator.html" class="tsd-kind-icon">Shim<wbr>Iterator</a>
 				</li>
 				<li class=" tsd-kind-class">
 					<a href="classes/slidepane.html" class="tsd-kind-icon">Slide<wbr>Pane</a>
@@ -171,14 +154,122 @@
 				<li class=" tsd-kind-class">
 					<a href="classes/textarea.html" class="tsd-kind-icon">Textarea</a>
 				</li>
+				<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-external">
+					<a href="classes/widgetbase.html" class="tsd-kind-icon">Widget<wbr>Base</a>
+				</li>
+				<li class=" tsd-kind-class tsd-is-external">
+					<a href="classes/widgetregistry.html" class="tsd-kind-icon">Widget<wbr>Registry</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/actionable.html" class="tsd-kind-icon">Actionable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/actionableoptions.html" class="tsd-kind-icon">Actionable<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/arraylike.html" class="tsd-kind-icon">Array<wbr>Like</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/attachoptions.html" class="tsd-kind-icon">Attach<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/baseeventedevents.html" class="tsd-kind-icon">Base<wbr>Evented<wbr>Events</a>
+				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/buttonproperties.html" class="tsd-kind-icon">Button<wbr>Properties</a>
 				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/checkboxproperties.html" class="tsd-kind-icon">Checkbox<wbr>Properties</a>
 				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/classesfunctionchain.html" class="tsd-kind-icon">Classes<wbr>Function<wbr>Chain</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelement.html" class="tsd-kind-icon">Custom<wbr>Element</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelementattributedescriptor.html" class="tsd-kind-icon">Custom<wbr>Element<wbr>Attribute<wbr>Descriptor</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelementdescriptor.html" class="tsd-kind-icon">Custom<wbr>Element<wbr>Descriptor</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelementeventdescriptor.html" class="tsd-kind-icon">Custom<wbr>Element<wbr>Event<wbr>Descriptor</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelementinitializer.html" class="tsd-kind-icon">Custom<wbr>Element<wbr>Initializer</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/customelementpropertydescriptor.html" class="tsd-kind-icon">Custom<wbr>Element<wbr>Property<wbr>Descriptor</a>
+				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/dialogproperties.html" class="tsd-kind-icon">Dialog<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventcancelableobject.html" class="tsd-kind-icon">Event<wbr>Cancelable<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventerrorobject.html" class="tsd-kind-icon">Event<wbr>Error<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/eventhandler.html" class="tsd-kind-icon">Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/eventobject.html" class="tsd-kind-icon">Event<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventtargettedobject.html" class="tsd-kind-icon">Event<wbr>Targetted<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventtypedobject.html" class="tsd-kind-icon">Event<wbr>Typed<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventedcallback.html" class="tsd-kind-icon">Evented<wbr>Callback</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/eventedlistenersmap.html" class="tsd-kind-icon">Evented<wbr>Listeners<wbr>Map</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/eventedoptions.html" class="tsd-kind-icon">Evented<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/executor.html" class="tsd-kind-icon">Executor</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/factory.html" class="tsd-kind-icon">Factory</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/focuseventhandler.html" class="tsd-kind-icon">Focus<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/forofcallback.html" class="tsd-kind-icon">For<wbr>OfCallback</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/hnode.html" class="tsd-kind-icon">HNode</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/handle.html" class="tsd-kind-icon">Handle</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/hash.html" class="tsd-kind-icon">Hash</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/invalidatable.html" class="tsd-kind-icon">Invalidatable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/iterable.html" class="tsd-kind-icon">Iterable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/iterableiterator.html" class="tsd-kind-icon">Iterable<wbr>Iterator</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/iterator.html" class="tsd-kind-icon">Iterator</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/iteratorresult.html" class="tsd-kind-icon">Iterator<wbr>Result</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/keyboardeventhandler.html" class="tsd-kind-icon">Keyboard<wbr>Event<wbr>Handler</a>
 				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/labeloptions.html" class="tsd-kind-icon">Label<wbr>Options</a>
@@ -186,8 +277,47 @@
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/labelproperties.html" class="tsd-kind-icon">Label<wbr>Properties</a>
 				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/mouseeventhandler.html" class="tsd-kind-icon">Mouse<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/observableobject.html" class="tsd-kind-icon">Observable<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/observablestore.html" class="tsd-kind-icon">Observable<wbr>Store</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/observer.html" class="tsd-kind-icon">Observer</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/patchablestore.html" class="tsd-kind-icon">Patchable<wbr>Store</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/projectionoptions.html" class="tsd-kind-icon">Projection<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/projectormixin.html" class="tsd-kind-icon">Projector<wbr>Mixin</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/projectoroptions.html" class="tsd-kind-icon">Projector<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/propertieschangeevent.html" class="tsd-kind-icon">Properties<wbr>Change<wbr>Event</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/propertieschangerecord.html" class="tsd-kind-icon">Properties<wbr>Change<wbr>Record</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/propertychangerecord.html" class="tsd-kind-icon">Property<wbr>Change<wbr>Record</a>
+				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/radioproperties.html" class="tsd-kind-icon">Radio<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/renderable.html" class="tsd-kind-icon">Renderable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/renderableparent.html" class="tsd-kind-icon">Renderable<wbr>Parent</a>
 				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/slidepaneproperties.html" class="tsd-kind-icon">Slide<wbr>Pane<wbr>Properties</a>
@@ -195,20 +325,185 @@
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/sliderproperties.html" class="tsd-kind-icon">Slider<wbr>Properties</a>
 				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/state.html" class="tsd-kind-icon">State</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/statechangeevent.html" class="tsd-kind-icon">State<wbr>Change<wbr>Event</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/statefulmixin.html" class="tsd-kind-icon">Stateful<wbr>Mixin</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/statefuloptions.html" class="tsd-kind-icon">Stateful<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/stylesmap.html" class="tsd-kind-icon">Styles<wbr>Map</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/subscribable.html" class="tsd-kind-icon">Subscribable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/subscriber.html" class="tsd-kind-icon">Subscriber</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/subscription.html" class="tsd-kind-icon">Subscription</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/subscriptionobserver.html" class="tsd-kind-icon">Subscription<wbr>Observer</a>
+				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/textinputproperties.html" class="tsd-kind-icon">Text<wbr>Input<wbr>Properties</a>
 				</li>
 				<li class=" tsd-kind-interface">
 					<a href="interfaces/textareaproperties.html" class="tsd-kind-icon">Textarea<wbr>Properties</a>
 				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/themeablemixin.html" class="tsd-kind-icon">Themeable<wbr>Mixin</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/themeableproperties.html" class="tsd-kind-icon">Themeable<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/thenable.html" class="tsd-kind-icon">Thenable</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/transitionstrategy.html" class="tsd-kind-icon">Transition<wbr>Strategy</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/typedtargetevent.html" class="tsd-kind-icon">Typed<wbr>Target<wbr>Event</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/vnode.html" class="tsd-kind-icon">VNode</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/vnodeproperties.html" class="tsd-kind-icon">VNode<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/virtualdomproperties.html" class="tsd-kind-icon">Virtual<wbr>Dom<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/wnode.html" class="tsd-kind-icon">WNode</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/widgetbaseevents.html" class="tsd-kind-icon">Widget<wbr>Base<wbr>Events</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-external">
+					<a href="interfaces/widgetbaseinterface.html" class="tsd-kind-icon">Widget<wbr>Base<wbr>Interface</a>
+				</li>
+				<li class=" tsd-kind-interface tsd-is-external">
+					<a href="interfaces/widgetproperties.html" class="tsd-kind-icon">Widget<wbr>Properties</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#blureventhandler" class="tsd-kind-icon">Blur<wbr>Event<wbr>Handler</a>
+				</li>
 				<li class=" tsd-kind-type-alias">
 					<a href="globals.html#buttontype" class="tsd-kind-icon">Button<wbr>Type</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#changeeventhandler" class="tsd-kind-icon">Change<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#classnameflags" class="tsd-kind-icon">Class<wbr>Name<wbr>Flags</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#classnames" class="tsd-kind-icon">Class<wbr>Names</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#classesfunction" class="tsd-kind-icon">Classes<wbr>Function</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#clickeventhandler" class="tsd-kind-icon">Click<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#constructor" class="tsd-kind-icon">Constructor</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#dnode" class="tsd-kind-icon">DNode</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#doubleclickeventhandler" class="tsd-kind-icon">Double<wbr>Click<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#eventhandlerresult" class="tsd-kind-icon">Event<wbr>Handler<wbr>Result</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#eventedlistener" class="tsd-kind-icon">Evented<wbr>Listener</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#eventedlistenerorarray" class="tsd-kind-icon">Evented<wbr>Listener<wbr>OrArray</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#inputeventhandler" class="tsd-kind-icon">Input<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#insertposition" class="tsd-kind-icon">Insert<wbr>Position</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#keydowneventhandler" class="tsd-kind-icon">Key<wbr>Down<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#keypresseventhandler" class="tsd-kind-icon">Key<wbr>Press<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#keyupeventhandler" class="tsd-kind-icon">Key<wbr>UpEvent<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#loadeventhandler" class="tsd-kind-icon">Load<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mousedowneventhandler" class="tsd-kind-icon">Mouse<wbr>Down<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mouseentereventhandler" class="tsd-kind-icon">Mouse<wbr>Enter<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mouseleaveeventhandler" class="tsd-kind-icon">Mouse<wbr>Leave<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mousemoveeventhandler" class="tsd-kind-icon">Mouse<wbr>Move<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mouseouteventhandler" class="tsd-kind-icon">Mouse<wbr>Out<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mouseovereventhandler" class="tsd-kind-icon">Mouse<wbr>Over<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mouseupeventhandler" class="tsd-kind-icon">Mouse<wbr>UpEvent<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#mousewheeleventhandler" class="tsd-kind-icon">Mouse<wbr>Wheel<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#observablepatchablestore" class="tsd-kind-icon">Observable<wbr>Patchable<wbr>Store</a>
 				</li>
 				<li class=" tsd-kind-type-alias">
 					<a href="globals.html#role" class="tsd-kind-icon">Role</a>
 				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#scrolleventhandler" class="tsd-kind-icon">Scroll<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#stateful" class="tsd-kind-icon">Stateful</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#submiteventhandler" class="tsd-kind-icon">Submit<wbr>Event<wbr>Handler</a>
+				</li>
 				<li class=" tsd-kind-type-alias">
 					<a href="globals.html#textinputtype" class="tsd-kind-icon">Text<wbr>Input<wbr>Type</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#widgetbaseconstructor" class="tsd-kind-icon">Widget<wbr>Base<wbr>Constructor</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#widgetconstructor" class="tsd-kind-icon">Widget<wbr>Constructor</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#widgetconstructorfunction" class="tsd-kind-icon">Widget<wbr>Constructor<wbr>Function</a>
+				</li>
+				<li class=" tsd-kind-type-alias tsd-is-external">
+					<a href="globals.html#widgetregistryitem" class="tsd-kind-icon">Widget<wbr>Registry<wbr>Item</a>
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#appbase" class="tsd-kind-icon">App<wbr>Base</a>
@@ -221,6 +516,9 @@
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#dialogbase" class="tsd-kind-icon">Dialog<wbr>Base</a>
+				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#hnode" class="tsd-kind-icon">HNODE</a>
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#labelbase" class="tsd-kind-icon">Label<wbr>Base</a>
@@ -240,6 +538,30 @@
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#textareabase" class="tsd-kind-icon">Textarea<wbr>Base</a>
 				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#widget_base_type" class="tsd-kind-icon">WIDGET_<wbr>BASE_<wbr>TYPE</a>
+				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#wnode" class="tsd-kind-icon">WNODE</a>
+				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#assign" class="tsd-kind-icon">assign</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#button" class="tsd-kind-icon">button</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#checked" class="tsd-kind-icon">checked</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#close" class="tsd-kind-icon">close</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#content" class="tsd-kind-icon">content</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#disabled" class="tsd-kind-icon">disabled</a>
+				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#environments" class="tsd-kind-icon">environments</a>
 				</li>
@@ -247,13 +569,61 @@
 					<a href="globals.html#excludeinstrumentation" class="tsd-kind-icon">exclude<wbr>Instrumentation</a>
 				</li>
 				<li class=" tsd-kind-variable">
+					<a href="globals.html#fadein" class="tsd-kind-icon">fade<wbr>In</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#fadeout" class="tsd-kind-icon">fade<wbr>Out</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#fill" class="tsd-kind-icon">fill</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#focusable" class="tsd-kind-icon">focusable</a>
+				</li>
+				<li class=" tsd-kind-variable">
 					<a href="globals.html#functionalsuites" class="tsd-kind-icon">functional<wbr>Suites</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#hidden" class="tsd-kind-icon">hidden</a>
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#initialbaseurl" class="tsd-kind-icon">initial<wbr>Base<wbr>Url</a>
 				</li>
 				<li class=" tsd-kind-variable">
+					<a href="globals.html#input" class="tsd-kind-icon">input</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#inputwrapper" class="tsd-kind-icon">input<wbr>Wrapper</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#invalid" class="tsd-kind-icon">invalid</a>
+				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#issymbol" class="tsd-kind-icon">is<wbr>Symbol</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#left" class="tsd-kind-icon">left</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#main" class="tsd-kind-icon">main</a>
+				</li>
+				<li class=" tsd-kind-variable">
 					<a href="globals.html#maxconcurrency" class="tsd-kind-icon">max<wbr>Concurrency</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#nativeinput" class="tsd-kind-icon">native<wbr>Input</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#open" class="tsd-kind-icon">open</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#output" class="tsd-kind-icon">output</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#popup" class="tsd-kind-icon">popup</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#pressed" class="tsd-kind-icon">pressed</a>
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#proxyport" class="tsd-kind-icon">proxy<wbr>Port</a>
@@ -262,16 +632,145 @@
 					<a href="globals.html#proxyurl" class="tsd-kind-icon">proxy<wbr>Url</a>
 				</li>
 				<li class=" tsd-kind-variable">
+					<a href="globals.html#readonly" class="tsd-kind-icon">readonly</a>
+				</li>
+				<li class=" tsd-kind-variable tsd-is-external">
+					<a href="globals.html#registry" class="tsd-kind-icon">registry</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#required" class="tsd-kind-icon">required</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#right" class="tsd-kind-icon">right</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#root" class="tsd-kind-icon">root</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#slidein" class="tsd-kind-icon">slide<wbr>In</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#slideout" class="tsd-kind-icon">slide<wbr>Out</a>
+				</li>
+				<li class=" tsd-kind-variable">
 					<a href="globals.html#suites" class="tsd-kind-icon">suites</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#thumb" class="tsd-kind-icon">thumb</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#title" class="tsd-kind-icon">title</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#track" class="tsd-kind-icon">track</a>
 				</li>
 				<li class=" tsd-kind-variable">
 					<a href="globals.html#tunnel" class="tsd-kind-icon">tunnel</a>
 				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#underlay" class="tsd-kind-icon">underlay</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#underlayvisible" class="tsd-kind-icon">underlay<wbr>Visible</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#valid" class="tsd-kind-icon">valid</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#vertical" class="tsd-kind-icon">vertical</a>
+				</li>
+				<li class=" tsd-kind-variable">
+					<a href="globals.html#visuallyhidden" class="tsd-kind-icon">visually<wbr>Hidden</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#afterrender" class="tsd-kind-icon">after<wbr>Render</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#create" class="tsd-kind-icon">create</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#createcompositehandle" class="tsd-kind-icon">create<wbr>Composite<wbr>Handle</a>
+				</li>
 				<li class=" tsd-kind-function">
 					<a href="globals.html#createdialogelement" class="tsd-kind-icon">create<wbr>Dialog<wbr>Element</a>
 				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#createhandle" class="tsd-kind-icon">create<wbr>Handle</a>
+				</li>
 				<li class=" tsd-kind-function">
 					<a href="globals.html#createslidepaneelement" class="tsd-kind-icon">create<wbr>Slide<wbr>Pane<wbr>Element</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#decorate" class="tsd-kind-icon">decorate</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#deepassign" class="tsd-kind-icon">deep<wbr>Assign</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#deepmixin" class="tsd-kind-icon">deep<wbr>Mixin</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#diffproperty" class="tsd-kind-icon">diff<wbr>Property</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#duplicate" class="tsd-kind-icon">duplicate</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#forof" class="tsd-kind-icon">for<wbr>Of</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#get" class="tsd-kind-icon">get</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#handleattributechanged" class="tsd-kind-icon">handle<wbr>Attribute<wbr>Changed</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#initializeelement" class="tsd-kind-icon">initialize<wbr>Element</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#isarraylike" class="tsd-kind-icon">is<wbr>Array<wbr>Like</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#isglobmatch" class="tsd-kind-icon">is<wbr>Glob<wbr>Match</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#ishnode" class="tsd-kind-icon">isHNode</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#isidentical" class="tsd-kind-icon">is<wbr>Identical</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#isiterable" class="tsd-kind-icon">is<wbr>Iterable</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#iswnode" class="tsd-kind-icon">isWNode</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#iswidgetbaseconstructor" class="tsd-kind-icon">is<wbr>Widget<wbr>Base<wbr>Constructor</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#latebind" class="tsd-kind-icon">late<wbr>Bind</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#mixin" class="tsd-kind-icon">mixin</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#onpropertieschanged" class="tsd-kind-icon">on<wbr>Properties<wbr>Changed</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#partial" class="tsd-kind-icon">partial</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#theme" class="tsd-kind-icon">theme</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#uuid" class="tsd-kind-icon">uuid</a>
+				</li>
+				<li class=" tsd-kind-function tsd-is-external">
+					<a href="globals.html#v" class="tsd-kind-icon">v</a>
+				</li>
+				<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+					<a href="globals.html#w" class="tsd-kind-icon">w</a>
 				</li>
 				<li class=" tsd-kind-object-literal">
 					<a href="globals.html#capabilities" class="tsd-kind-icon">capabilities</a>
