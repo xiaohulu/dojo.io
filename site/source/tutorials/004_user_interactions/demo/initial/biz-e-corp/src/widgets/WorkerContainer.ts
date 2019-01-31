@@ -1,32 +1,27 @@
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
-import { w, v } from '@dojo/widget-core/d';
-import Worker from './Worker';
-import { theme, ThemeableMixin, ThemeableProperties } from '@dojo/widget-core/mixins/Themeable';
-import * as styles from '../styles/workerContainer.css';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { w, v } from '@dojo/framework/widget-core/d';
+import Worker, { WorkerProperties } from './Worker';
+import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
+import * as css from '../styles/workerContainer.m.css';
 
-const WorkerContainerBase = ThemeableMixin(WidgetBase);
+export interface WorkerContainerProperties {
+	workerData?: WorkerProperties[];
+}
 
-@theme(styles)
-export default class WorkerContainer extends WorkerContainerBase<ThemeableProperties> {
-	render(): DNode {
-		const workers: DNode[] = [
-			w(Worker, {
-				firstName: 'Tim',
-				lastName: 'Jones'
-			}),
-			w(Worker, {
-				firstName: 'Alicia',
-				lastName: 'Fitzgerald'
-			}),
-			w(Worker, {
-				firstName: 'Hans',
-				lastName: 'Mueller'
-			})
-		];
+@theme(css)
+export default class WorkerContainer extends ThemedMixin(WidgetBase)<WorkerContainerProperties> {
+	protected render() {
+		const {
+			workerData = []
+		} = this.properties;
+
+		const workers = workerData.map((worker, i) => w(Worker, {
+			key: `worker-${i}`,
+			...worker
+		}));
 
 		return v('div', {
-			classes: this.classes(styles.container)
+			classes: this.theme(css.container)
 		}, workers);
 	}
 }

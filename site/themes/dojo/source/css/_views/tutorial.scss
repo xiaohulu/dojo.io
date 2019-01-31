@@ -1,0 +1,126 @@
+.tutorial-card {
+	display: block;
+	position: relative;
+
+	&:hover {
+		.uk-card-header {
+			background: lighten($global-primary-background, 10%);
+		}
+	}
+
+	.uk-card-header {
+		background: $global-primary-background;
+		border-radius: 4px 4px 0 0;
+		color: #fff;
+		transition: background 0.4s ease;
+		min-width: 60px;
+	}
+
+	.uk-card-title {
+		margin:0 0 0.5rem 0;
+		font-size: 1.25rem;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.uk-link {
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	&[data-topic*="dev"],
+	&[data-topic*="cli"] {
+		.uk-card-header {
+			background: #160405;
+		}
+
+		&:hover {
+			.uk-card-header {
+				background: lighten(#160405, 5%);
+			}
+		}
+	}
+
+	&[data-topic*="themes"] {
+		.uk-card-header {
+			background: #20cc76;
+		}
+
+		&:hover {
+			.uk-card-header {
+				background: lighten(#20cc76, 10%);
+			}
+		}
+	}
+
+	&[data-topic*="forms"] {
+		.uk-card-header {
+			background: #a931b6;
+		}
+		&:hover {
+			.uk-card-header {
+				background: lighten(#a931b6, 10%);
+			}
+		}
+	}
+
+	&[data-topic*="widget"] {
+		.uk-card-header {
+			background: #f15a24;
+		}
+		&:hover {
+			.uk-card-header {
+				background: lighten(#f15a24, 10%);
+			}
+		}
+	}
+}
+
+.body-tutorial {
+    @media (min-width: 960px) {
+		.uk-section {
+			padding-top: 2.5rem;
+		}
+	}
+	
+	.tutorial {
+		@extend .uk-margin;
+	}
+
+	.instruction {
+		border-left: 4px solid $global-success-background;
+		padding-left: 0.5rem;
+		margin-top: 2rem;
+		font-weight: bold;
+	}
+
+	.task {
+		border-left: 4px solid $global-primary-background;
+		padding-left: 0.5rem;
+		font-weight: bold;
+	}
+
+    .aside {
+		@extend .uk-margin-medium;
+		@extend .uk-padding-small;
+		@extend .uk-section-secondary;
+		font-size: 0.9em;
+		border-left: 10px solid $alert-warning-color;
+
+		code {
+			background: rgba(#fff, 0.2);
+		}
+
+		p {
+			margin-top: 0.5em;
+		}
+    }
+}

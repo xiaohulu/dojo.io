@@ -1,15 +1,17 @@
-<header class="container site-header">
-  <div class="content-container">
-    <div class="row">
-      <nav class="site-nav">
-          <a href="<%- url_for() %>" class="header-logo"><img src="<%- url_for('images/dojo2-logo-white.svg') %>" alt="<%= config.title %>"></a>
-          <% for (var i in theme.menu){ %>
-            <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
-          <% } %>
-          <% if(theme.github){%>
-            <a class="main-nav-link main-nav-icon-link" href="<%- theme.github %>"><img src="<%- url_for('images/logos/github-white.svg') %>" alt="Dojo on Github" class="nav-icon github"></a>
-          <% } %>
-      </nav>
-    </div>
-  </div>
-</header>
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+	<div class="uk-container uk-container-expand uk-navbar-container">
+		<nav class="uk-navbar" uk-navbar>
+			<div class="uk-navbar-left">
+				<ul class="uk-navbar-nav">
+					<li><a href="#sidebar-nav" uk-icon="icon: menu" class="navbar-item uk-hidden@m" uk-toggle="target: #mobile-sidebar"></a></li>
+					<li><a href="/" class="navbar-item"><img src="/images/logos/dojo2-logo-white.svg" class="uk-logo site-logo" alt="Dojo"></a></li>
+				</ul>
+			</div>
+			<div class="uk-navbar-right uk-visible@m">
+				<ul class="uk-navbar-nav">
+					<%- partial('_partial/nav') %>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>

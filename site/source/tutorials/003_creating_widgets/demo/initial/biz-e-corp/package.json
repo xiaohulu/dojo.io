@@ -1,28 +1,21 @@
 {
-  "name": "biz-e-corp",
+  "name": "dojo-creating-widgets-tutorial",
   "version": "1.0.0",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "dojo test",
+    "build": "dojo build"
+  },
   "dependencies": {
-    "@dojo/core": "beta1",
-    "@dojo/has": "beta1",
-    "@dojo/routing": "beta1",
-    "@dojo/shim": "beta1",
-    "@dojo/widget-core": "beta1",
-    "@dojo/i18n": "beta1",
-    "maquette": "2.4.3"
+    "@dojo/framework": "^4.0.0",
+    "tslib": "~1.8.1"
   },
   "devDependencies": {
-    "@dojo/cli-build-webpack": "beta1",
-    "@dojo/cli-test-intern": "beta1",
-    "@dojo/interfaces": "beta1",
-    "@dojo/loader": "beta1",
-    "@types/chai": "~3.4.0",
-    "@types/glob": "~5.0.0",
-    "@types/grunt": "~0.4.0",
-    "@types/node": "^6.0.46",
+    "@dojo/cli-build-app": "^4.0.0",
+    "@dojo/cli-test-intern": "^4.0.0",
+    "@types/node": "~9.6.5",
     "@types/sinon": "^1.16.35",
-    "chai": "^3.5.0",
-    "intern": "~3.4.1",
     "sinon": "^2.0.0",
-    "typescript": "~2.2.1"
+    "typescript": "~2.6.1"
   }
 }

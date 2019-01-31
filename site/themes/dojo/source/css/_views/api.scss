@@ -1,0 +1,7 @@
+[data-doc-type="api"] {
+	.table {
+		@extend .uk-table;
+		@extend .uk-table-divider;
+		font-size: 0.9em;
+	}
+}

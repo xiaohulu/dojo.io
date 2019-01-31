@@ -1,9 +1,11 @@
 # Header
 menu:
-  Tutorials: /tutorials
-  API: /api
-  #Community: /community
-  Blog: /blog/2017/03/27/Dojo-2-is-coming
+  Docs: /docs/index.html#doc--dojo__cli__master
+  Tutorials: /tutorials/000_local_installation/
+  Blog: /blog
+  Github: https://github.com/dojo/framework
+  Gitter: https://gitter.im/dojo/dojo
+  Twitter: https://twitter.com/dojo
 rss: /atom.xml
 
 
@@ -34,4 +36,4 @@ show_count: false
 google_analytics: UA-3242977-15
 favicon: /images/favicons/favicon.ico
 twitter: https://twitter.com/dojo
-github: https://github.com/dojo/meta
+github: https://github.com/dojo/framework

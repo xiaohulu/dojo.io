@@ -1,286 +1,132 @@
 ---
-layout: tutorial
 title: Responding to events
-editorUrl: https://embed.plnkr.co/g5qEcD/?show=src/widgets/Worker.ts,preview&preview=index.html
-overview: In this tutorial, you will learn how to update an application in response to user-generated events, such as clicking a button.
+icon: hand-pointer
+overview: Update an application in response to user-generated events, such as clicking a button.
+layout: tutorial
+paginate: true
+group: getting_started
+topic: events
 ---
+
+{% section 'first' %}
+
 # Responding to events
 
 ## Overview
 In this tutorial, you will learn how to update an application in response to user-generated events, such as clicking a button.
 
-We will start with an application that renders widgets containing the portrait and names of several employees for the hypothetical company, "Biz-E Corp". In this tutorial, you will learn how to add event listeners to these widgets so that they show additional information about each worker including a list of the active tasks for the worker.
+We will start with an application that renders widgets containing the portrait and names of several employees for the hypothetical company, "Biz-E Corp". In this tutorial, you will learn how to add event listeners to these widgets so that they show additional information about each worker including a list of their active tasks.
 
 ## Prerequisites
+You can open the [tutorial on codesandbox.io](https://codesandbox.io/s/github/dojo/dojo.io/tree/master/site/source/tutorials/004_user_interactions/demo/initial/biz-e-corp) or [download](../assets/004_user_interactions-initial.zip) the demo project and run `npm install` to get started.
 
-With the Dojo 2 tutorial series, you may work with the examples following two different paths:
+You should install the `@dojo/cli` command globally. Refer to the [Dojo local installation](../000_local_installation/) article for more information.
 
-* A browser embedded editor
-* A local installation
+You also need to be familiar with TypeScript as Dojo uses it extensively.
 
-The browser embedded editor is intended to make it easy to quickly see the examples in action, but does not match a normal development environment, and does not provide all of the benefits of TypeScript.
+{% section %}
 
-If you prefer a local installation, please visit the [Dojo 2 Installation Guide](../000_local_installation/) before proceeding further with this tutorial.
+## Event listeners
 
-Whether you are working locally or using the embedded editor, you need to be familiar with TypeScript as Dojo 2 uses it extensively. For more information, refer to the [TypeScript and Dojo 2](../comingsoon.html) article.
+{% task 'Create an event listener.' %}
 
-## Demo files
-If you are following along locally, you can [download](../assets/004_user_interactions-initial.zip) the demo project to get started.
+In [Creating widgets](../003_creating_widgets/), we created an application that contains several widgets that render worker information. In this tutorial, you will add event listeners to these widgets to show additional information about an employee when clicking on the widget.
 
-## Creating an event listener
-In the [previous](../003_creating_widgets) tutorial in this series, we created an application that contains several widgets that render worker information. In this tutorial, you will add event listeners to these widgets to show additional information about an employee when the widget is clicked.
+The first step is to add the listener itself. In Dojo, event listeners get assigned like any other property passed to the rendering function, `v`. Look at the `Worker` widget that is in `src/widgets`. Currently, the top level `DNode` has one property assigned: `classes`.
 
-The first step is to add the listener itself. In Dojo 2, an event listener is assigned like any other property that is passed to the rendering function, `v`. Look at the `Worker` widget that is in `src/widgets`. Currently, the top level vNode has one property assigned: `classes`. Update the object containing that property as follows:
+{% instruction 'Update the object containing that property as follows.' %}
 
-```ts
+```typescript
 {
-	classes: this.classes(styles.workerFront),
+	classes: this.theme(css.worker),
 	onclick: this.flip
 }
 ```
 
-The `onclick` property registers a function that will be called when the node that it is attached to is clicked. In this case, the registered function is a method called `flip`. Add a basic implementation for that method:
+The `onclick` property registers a function to call when clicking on the node to which it is attached. In this case, the registered function is a method called `flip`.
 
-```ts
+{% instruction 'Add a basic implementation for that method within the Worker class.' %}
+
+```typescript
 flip(): void {
 	console.log('the flip method has been fired!');
 }
 ```
 
-Now, run the app (using `dojo build --watch`) and navigate to [localhost:9999](http://localhost:9999). Once there, open the console window and click on any of the worker widgets to confirm that the `flip` method is being called as expected.
+Now, run the app (using `dojo build -m dev -w memory -s`) and navigate to [localhost:9999](http://localhost:9999). Once there,
 
-For short event handlers you might be tempted to use an anonymous function like this:
-```ts
-return v('div', {
-	classes: this.classes(styles.worker),
-	onclick: () => {
-		/* Note: Do not do this, this is an
-		example of an anti-pattern */
-		console.log('the handler has been called');
-	}
-}, ...
-```
+{% instruction 'Open the console window and click on any of the worker widgets to confirm that the `flip` method gets called as expected.' %}
 
-While this appears to work, Maquette doesn't allow an event handler to be updated. To see what happens, let's have the `onclick` handler invalidate the widget, forcing Maquette to re-render it.
+{% aside 'Automatic Binding of Handlers' %}
+The context for event handlers and function properties are automatically bound to the `this` context of the widget that defined the `v()` or `w()` call. If you are just passing on a property that has already been bound, then this will _not_ be bound again.
+{% endaside %}
 
-```ts
-return v('div', {
-	classes: this.classes(styles.worker),
-	onclick: () => {
-		/* Note: Do not do this, this is an
-		example of an anti-pattern */
-		console.log('the handler has been called');
-		this.invalidate();
-	}
-}, ...
-```
+{% section %}
 
-Open up your browser's development tools and display the console tab then click on a widget. Notice that an error is written to the console. To avoid an error, all event handlers should be defined once, such as via a method. Update the `onclick` property to its previous value:
+## Using event handlers
 
-```ts
-return v('div', {
-	classes: this.classes(styles.worker),
-	onclick: this.flip
-},...
-```
+{% task 'Add a second visual state.' %}
 
-## Adding a second visual state
-Now that we have an event handler it is time to extend the `render` method to be able to show detailed information about a worker in addition to the current overview. For the sake of this tutorial, we will call the current view the front and the detailed view the back.
+Now that we have an event handler, it is time to extend the `render` method to show detailed information about a worker in addition to the current overview. For the sake of this tutorial, we will call the current view the front and the detailed view the back.
 
-We could add the additional rendering logic in the current `render` method, but that method could become difficult to maintain as it would have to contain all of the rendering code for both the front and back of the card. Instead, we will generate the two views using two private methods and then call them from the `render` method. To start, create a new private method called `_renderFront` and move the existing render code inside it::
+We could add the additional rendering logic in the current `render` method, but that method could become difficult to maintain as it would have to contain all of the rendering code for both the front and back of the card. Instead, we will generate the two views using two private methods and then call them from the `render` method.
 
-```ts
-private _renderFront(): DNode {
-	const {
-		firstName = 'firstName',
-		lastName = 'lastName'
-	} = this.properties;
+{% instruction 'Create a new private method called `_renderFront` and move the existing render code inside it.' %}
 
-	return v('div', {
-		classes: this.classes(styles.workerFront),
-		onclick: this.flip
-	}, [
-		v('img', {
-			classes: this.classes(styles.image),
-				src: 'images/worker.jpg' }, []),
-			v('div', [
-				v('strong', [ `${lastName}, ${firstName}` ])
-			])
-		]
-	);
-}
-```
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' lines:27-45 %}
 
-Next, create another private method called `_renderBack` to render the back view:
-```ts
-private _renderBack(): DNode {
-	const {
-		firstName = 'firstName',
-		lastName = 'lastName',
-		email = 'unavailable',
-		timePerTask = 0,
-		tasks = []
-	} = this.properties;
+{% instruction 'Create another private method called `_renderBack` to render the back view.' %}
 
-	return v('div', {
-		classes: this.classes(styles.workerBack),
-		onclick: this.flip
-		}, [
-			v('img', {
-					classes: this.classes(styles.imageSmall),
-					src: 'images/worker.jpg'
-				}, []
-			),
-			v('div', {
-				classes: this.classes(styles.generalInfo)
-			}, [
-				v('div', {
-					classes : this.classes(styles.label)
-				}, ['Name']),
-				v('div', [`${lastName}, ${firstName}`]),
-				v('div', {
-					classes: this.classes(styles.label)
-				}, ['Email']),
-				v('div', [`${email}`]),
-				v('div', {
-					classes: this.classes(styles.label)
-				}, ['Avg. Time per Task']),
-				v('div', [`${timePerTask}`])
-			]),
-			v('div', [
-				v('strong', ['Current Tasks']),
-				v('div', tasks.map(task => {
-					return v('div', {
-							classes: this.classes(styles.task)
-						},
-						[task]
-					);
-				}))
-			])
-		]
-	);
-}
-```
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' lines:47-88 %}
 
-None of this code is new. We are composing together multiple virtual nodes to generate the elements required to render the detailed view. This method does, however, refer to some properties and CSS selectors that do not exist yet.
+This code is not doing anything new. We are composing together multiple virtual nodes to generate the elements required to render the detailed view. This method does, however, refer to some properties and CSS selectors that do not exist yet.
 
-Three new properties need to be added to the `WorkerProperties` interface. These properties are the email address of the worker, the average number of hours they take to complete a task, and the active tasks for the worker..  Update the `WorkerProperties` interface to:
+We need to add three new properties to the `WorkerProperties` interface. These properties are the email address of the worker, the average number of hours they take to complete a task, and the active tasks for the worker.
 
-```ts
-export interface WorkerProperties extends WidgetProperties {
-	firstName?: string
-	lastName?: string
-	email?: string
-	timePerTask?: number
-	tasks?: string[]
-}
-```
+{% instruction 'Update the `WorkerProperties` interface.' %}
 
-Now, we need to add the CSS selectors that will provide the rules for rendering this view's elements. Open up the `worker.css` file in `src/styles` and update it as follows:
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' lines:6-12 %}
 
-```css
-.workerFront {
-	width: 27%;
-	margin: 0 3%;
-	display: inline-block;
-	vertical-align: top;
-	text-align: center;
-}
+Now, we need to add the CSS selectors that will provide the rules for rendering this view's elements.
 
-.workerBack {
-	width: 27%;
-	margin: 0 3%;
-	display: inline-block;
-	vertical-align: top;
-	font-size: 0.5em;
-}
+{% instruction 'Open `worker.m.css` and replace the existing classes with the following.' %}
 
-.image {
-	width: 100%;
-}
+{% include_codefile 'demo/finished/biz-e-corp/src/styles/worker.m.css' lang:css %}
 
-.imageSmall {
-	width: 40%;
-}
+We also need to update the CSS selector for the front view by changing the selector from `css.worker` to `css.workerFront`.
 
-.generalInfo {
-	width: 55%;
-	display: inline-block;
-}
+Finally, we need to update the `render` method to choose between the two rendering methods.
 
-.task {
-	border: solid 1px #333;
-	border-radius: 0.3em;
-	text-align: left;
-}
+{% instruction 'Add a private field to the class.' %}
 
-.label {
-	font-weight: bold;
-}
-```
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' line:16 %}
 
-We also need to update the CSS selector for the front view, by changing the selector from `styles.worker` to `styles.workerFront`.
+In general, the use of private state is discouraged. Dojo encourages the use of a form of the [inversion of control](https://en.wikipedia.org/wiki/Inversion_of_control) pattern, where the properties passed to the component by its parent control the behavior of the component. This pattern helps make components more modular and reusable since the parent component is in complete control of the child component's behavior and does not need to make any assumptions about its internal state. For widgets that have state, the use of a field to store this kind of data is standard practice in Dojo. Properties are used to allow other components to view and modify a widget's published state, and private fields are used to enable widgets to encapsulate state information that should not be exposed publicly.
 
-```ts
-private _renderFront(): DNode {
-	const {
-		firstName="firstName",
-		lastName="lastName"} = this.properties;
+{% instruction 'Use that field\'s value to determine which side to show.' %}
 
-	return v('div', {
-		classes: this.classes(styles.workerFront),
-		onclick: this.flip
-	},...
-```
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' lines:18-25 %}
 
-Finally, we need to update the `render method` to choose between the two rendering methods. To do that, add a private field to the class:
+Confirm that everything is working by viewing the application in a browser. All three cards should be showing their front faces. Now change the value of the `_isFlipped` field to `true` and, after the application re-compiles, all three widgets should be showing their back faces.
 
-```ts
-private _isFlipped = false;
-```
+To re-render our widget, we need to update the `flip` method to toggle the `_isFlipped` field and invalidate the widget
 
-The use of a field to store this kind of data is standard practice in Dojo 2. Properties are used to allow other components to view and modify a widget's published state. For internal state, however, private fields are used to allow widget to encapsulate state information that should not be exposed publicly. Let's use that field's value to determine which side to show:
+{% instruction 'Replace the `flip` method with this one.' %}
 
-```ts
-render(): DNode {
-	return this._isFlipped ? this._renderBack() : this._renderFront();
-}
-```
+{% include_codefile 'demo/finished/biz-e-corp/src/widgets/Worker.ts' lines:90-93 %}
 
-Confirm that everything is working by viewing the application in a browser - all three cards should be showing their front faces. Now change the value of the `_isFlipped` field to `true` and, after the application recompiles, all three widgets should be showing their back faces.
+Now, the widget may flip between its front and back sides by clicking on it.
 
-In order to re-render our widget, we need to update the `flip` method to toggle the `_isFlipped` field and invalidate the widget
+{% section %}
 
-```ts
-flip(): void {
-	this._isFlipped = !this._isFlipped;
-	this.invalidate();
-}
-```
+## Final steps
 
-Now, the widget can be flipped between its front and back sides by clicking on it.
-
-## Final steps - providing more properties
+{% task 'Provide additional properties.' %}
 
 Currently, several of the properties are missing for the widgets. As an exercise, try to update the first widget to contain the following properties:
-```ts
-firstName: 'Tim'
-lastName: 'Jones'
-email: 'tim.jones@bizecorp.org',
-tasks: [
-	'6267 - Untangle paperclips',
-	'4384 - Shred documents',
-	'9663 - Digitize 1985 archive'
-]
-```
-
-When you are ready, click the button below to see our solution.
-
-{% solution showSolution1 %}
-The widget's parent is responsible for passing properties to the widget. In this application, `Worker` widgets are contained by the `WorkerContainer` widget. To pass the specified properties to the first worker, the first element in the `workers` array needs to be updated to the following:
 
 ```ts
-w(Worker, {
+{
 	firstName: 'Tim',
 	lastName: 'Jones',
 	email: 'tim.jones@bizecorp.org',
@@ -289,14 +135,22 @@ w(Worker, {
 		'4384 - Shred documents',
 		'9663 - Digitize 1985 archive'
 	]
-})
+}
 ```
-{% endsolution %}
+
+This change will pass the specified properties to the first worker. The widget's parent
+is responsible for passing properties to the widget. In this application, `Worker`
+widgets are receiving data from the `App` class via the `WorkerContainer`.
+
+
+{% section %}
 
 ## Summary
 
-In this tutorial, we learned how to attach event listeners to respond to widget-generated events. Event handlers are assigned to virtual nodes like any other Dojo 2 property. Be aware that the value of an event handler cannot change once the widget has been rendered the first time. This is normally accomplished by creating a method on the widget class and assigning this method as the event handler.
+In this tutorial, we learned how to attach event listeners to respond to widget-generated events. Event handlers get assigned to virtual nodes like any other Dojo property.
 
-If you would like, you can download the [demo application](../assets/004_user_interactions-finished.zip).
+If you would like, you can open the completed demo application on [codesandbox.io](https://codesandbox.io/s/github/dojo/dojo.io/tree/master/site/source/tutorials/004_user_interactions/demo/finished/biz-e-corp) or alternatively [download](../assets/004_user_interactions-finished.zip) the project.
 
-In the [next tutorial](../comingsoon.html), we will work with more complicated interactions in Dojo 2 by extending the demo application, allowing new Workers to be created using forms.
+In [Form widgets](../005_form_widgets/), we will work with more complicated interactions in Dojo by extending the demo application, allowing new Workers to be created using forms.
+
+{% section 'last' %}

@@ -1,30 +1,27 @@
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
-import { v } from '@dojo/widget-core/d';
-import { theme, ThemeableMixin } from '@dojo/widget-core/mixins/Themeable';
-import * as styles from '../styles/worker.css';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { v } from '@dojo/framework/widget-core/d';
+import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
+import * as css from '../styles/worker.m.css';
 
-export interface WorkerProperties extends WidgetProperties {
+export interface WorkerProperties {
 	firstName?: string;
 	lastName?: string;
 }
 
-const WorkerBase = ThemeableMixin(WidgetBase);
-
-@theme(styles)
-export default class Worker extends WorkerBase<WorkerProperties> {
-	render(): DNode {
+@theme(css)
+export default class Worker extends ThemedMixin(WidgetBase)<WorkerProperties> {
+	protected render() {
 		const {
 			firstName = 'firstName',
 			lastName = 'lastName'
 		} = this.properties;
 
 		return v('div', {
-			classes: this.classes(styles.worker)
-		}, [
+				classes: this.theme(css.worker)
+			}, [
 				v('img', {
-					classes: this.classes(styles.image),
-					src: 'images/worker.jpg' }, []),
+					classes: this.theme(css.image),
+					src: 'https://dojo.io/tutorials/resources/worker.svg' }),
 				v('div', [
 					v('strong', [ `${lastName}, ${firstName}` ])
 				])

@@ -1,6 +1,13 @@
 <div class="bodyContainer">
-	<img src="images/home/dragon2.svg" class="dragon">
-	<h1 class="teaser">Dojo is evolving</h1>
-	<h3 class="sub">A better way to create enterprise web apps is coming</h3>
-	<a href="https://github.com/dojo/meta" class="btn"><img src="images/home/gh.svg" class="gh"></a>
+	<%- partial('_partial/landingPage/hero') %>
+	<%- partial('_partial/landingPage/upAndRunning') %>
+	<%- partial('_partial/landingPage/embracingPlatform') %>
+	<%- partial('_partial/landingPage/meta') %>
+	<%- partial('_partial/landingPage/accessibility') %>
+	<%- partial('_partial/landingPage/features') %>
+</div>
+<div id="mobile-sidebar" class="sidebar-left" uk-offcanvas>
+	<div class="uk-offcanvas-bar">
+		<%- partial('_partial/main-nav') %>
+	</div>
 </div>

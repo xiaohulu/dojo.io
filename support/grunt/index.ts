@@ -1,11 +1,12 @@
 import * as config from './config';
-import { join, basename, extname } from 'path';
+import { basename, extname, join } from 'path';
 import { readdirSync } from 'fs';
-import { isCronJob } from '../util/environment';
 
 export = function (grunt: IGrunt) {
 	require('load-grunt-tasks')(grunt);
 	grunt.loadNpmTasks('webserv');
+	grunt.loadNpmTasks('intern');
+	grunt.loadNpmTasks('grunt-dojo2-extras');
 
 	const tasksDirectory = join(__dirname, 'tasks');
 	readdirSync(tasksDirectory).filter(function (path) {
@@ -17,14 +18,9 @@ export = function (grunt: IGrunt) {
 
 	grunt.initConfig(config);
 
-	grunt.registerTask('default', [ 'clean', 'sync', 'hexo' ]);
+	grunt.registerTask('default', [ 'hexoClean', 'clean', 'sync', 'concurrent:build' ]);
 	grunt.registerTask('generate', [ 'hexo' ]);
-	grunt.registerTask('test', [ 'tslint', 'shell:build-ts', 'clean:compiledFiles' ]);
-
-	if (isCronJob()) {
-		grunt.registerTask('ci', [ 'default', 'api' ]);
-	}
-	else {
-		grunt.registerTask('ci', [ 'default' ]);
-	}
+	grunt.registerTask('test', [ 'clean:compiledFiles', 'tslint', 'shell:build-ts', 'intern' ]);
+	grunt.registerTask('init', [ 'prompt:github', 'initAutomation' ]);
+	grunt.registerTask('ci', [ 'prebuild', 'default', 'tutorials' ]);
 };

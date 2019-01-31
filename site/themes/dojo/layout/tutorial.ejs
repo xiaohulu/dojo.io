@@ -1,15 +1,23 @@
-<% 
-if(page.editorUrl) {
-%>
-<div class="split-content">
-<% } %>
-	<div class="tutorial-content">
-		<%- page.content %>
+<section class="section">
+	<div class="container">
+		<div class="uk-offcanvas-content has-sidebar-left">
+			<div class="sidebar-left uk-visible@m">
+				<%- partial('_partial/tutorials-nav') %>
+			</div>
+			<div class="uk-section uk-section-default">
+				<div class="uk-container uk-container-small uk-position-relative">
+					<%- page.content %>
+				</div>
+			</div>
+		</div>
 	</div>
-
-<% if(page.editorUrl) { %>
-	<div class="editor">
-		<iframe src="<%- page.editorUrl %>" class="editor-frame"></iframe>
+</section>
+<div id="mobile-sidebar" class="sidebar-left" uk-offcanvas>
+	<div class="uk-offcanvas-bar">
+		<div>
+			<%- partial('_partial/main-nav') %>
+			<hr>
+			<%- partial('_partial/tutorials-nav') %>
+		</div>
 	</div>
 </div>
-<% } %>

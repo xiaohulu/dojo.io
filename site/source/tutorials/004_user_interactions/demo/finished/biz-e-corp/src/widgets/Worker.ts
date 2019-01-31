@@ -1,10 +1,9 @@
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
-import { v } from '@dojo/widget-core/d';
-import { theme, ThemeableMixin } from '@dojo/widget-core/mixins/Themeable';
-import * as styles from '../styles/worker.css';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { v } from '@dojo/framework/widget-core/d';
+import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
+import * as css from '../styles/worker.m.css';
 
-export interface WorkerProperties extends WidgetProperties {
+export interface WorkerProperties {
 	firstName?: string;
 	lastName?: string;
 	email?: string;
@@ -12,29 +11,32 @@ export interface WorkerProperties extends WidgetProperties {
 	tasks?: string[];
 }
 
-const WorkerBase = ThemeableMixin(WidgetBase);
-
-@theme(styles)
-export default class Worker extends WorkerBase<WorkerProperties> {
+@theme(css)
+export default class Worker extends ThemedMixin(WidgetBase)<WorkerProperties> {
 	private _isFlipped = false;
 
-	render(): DNode {
-		return this._isFlipped ? this._renderBack() : this._renderFront();
+	protected render() {
+		return v('div', {
+			classes: this.theme([ css.worker, this._isFlipped ? css.reverse : null ])
+		}, [
+			this._renderFront(),
+			this._renderBack()
+		]);
 	}
 
-	private _renderFront(): DNode {
+	private _renderFront() {
 		const {
 			firstName = 'firstName',
 			lastName = 'lastName'
 		} = this.properties;
 
 		return v('div', {
-			classes: this.classes(styles.workerFront),
-			onclick: this.flip
-		}, [
-			v('img', {
-				classes: this.classes(styles.image),
-					src: 'images/worker.jpg' }, []),
+				classes: this.theme(css.workerFront),
+				onclick: this.flip
+			}, [
+				v('img', {
+					classes: this.theme(css.image),
+						src: 'https://dojo.io/tutorials/resources/worker.svg' }),
 				v('div', [
 					v('strong', [ `${lastName}, ${firstName}` ])
 				])
@@ -42,7 +44,7 @@ export default class Worker extends WorkerBase<WorkerProperties> {
 		);
 	}
 
-	private _renderBack(): DNode {
+	private _renderBack() {
 		const {
 			firstName = 'firstName',
 			lastName = 'lastName',
@@ -52,38 +54,33 @@ export default class Worker extends WorkerBase<WorkerProperties> {
 		} = this.properties;
 
 		return v('div', {
-			classes: this.classes(styles.workerBack),
-			onclick: this.flip
+				classes: this.theme(css.workerBack),
+				onclick: this.flip
 			}, [
 				v('img', {
-						classes: this.classes(styles.imageSmall),
-						src: 'images/worker.jpg'
-					}, []
-				),
+					classes: this.theme(css.imageSmall),
+					src: 'https://dojo.io/tutorials/resources/worker.svg'
+				}),
 				v('div', {
-					classes: this.classes(styles.generalInfo)
+					classes: this.theme(css.generalInfo)
 				}, [
 					v('div', {
-						classes : this.classes(styles.label)
+						classes : this.theme(css.label)
 					}, ['Name']),
 					v('div', [`${lastName}, ${firstName}`]),
 					v('div', {
-						classes: this.classes(styles.label)
+						classes: this.theme(css.label)
 					}, ['Email']),
 					v('div', [`${email}`]),
 					v('div', {
-						classes: this.classes(styles.label)
+						classes: this.theme(css.label)
 					}, ['Avg. Time per Task']),
 					v('div', [`${timePerTask}`])
 				]),
 				v('div', [
 					v('strong', ['Current Tasks']),
 					v('div', tasks.map(task => {
-						return v('div', {
-								classes: this.classes(styles.task)
-							},
-							[task]
-						);
+						return v('div', { classes: this.theme(css.task) }, [ task ]);
 					}))
 				])
 			]

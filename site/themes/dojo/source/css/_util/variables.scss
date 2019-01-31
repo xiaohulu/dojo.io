@@ -1,0 +1,64 @@
+@import 'variables-theme';
+
+// Colors
+$primary: #459DF8;
+$link: darken($primary, 5%);
+$link-hover: $primary;
+$light: #fff;
+$dark: #999;
+$card-color: #fff;
+$success: green;
+
+$page-background: #ffffff;
+
+$color-default: rgba(0,0,0,0.8);
+$color-meta: $color-default;
+$color-grey: #999;
+$color-background-light: #fdfdfd;
+$color-border: #eee;
+$color-link: #258fb8;
+$color-background: #F5F8F9;
+$color-widget-background : #ddd;
+$color-widget-border: #ccc;
+$color-mobile-nav-background: #191919;
+$color-twitter: #00aced;
+$color-facebook: #3b5998;
+$color-pinterest: #cb2027;
+$color-google: #dd4b39;
+
+// Code variables
+$color-code-background: #fff;
+$color-inline-code: #353535;
+$code-font-size: 0.85rem;
+
+// Component style variables
+$header-background: #212329;
+$footer-background: #fff;
+$paginator-background: $light;
+
+$navbar-background: $header-background;
+
+$header-height: 3.25rem;
+$header-offset: $header-height;
+$footer-offset: 3.25rem;
+$border-radius: 6px;
+
+
+$sidenav-width: 300px;
+$sidenav-right-width: 250px;
+
+$global-font-size: 15px;
+$global-line-height: 1.65;
+$global-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$base-code-font-size: 0.85rem;
+$base-code-color: #032f62;
+$base-pre-font-size: 0.85rem;
+$base-code-font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+$heading-font: 'Montserrat', sans-serif;
+$base-heading-font-family: $heading-font;
+$navbar-nav-item-font-size: 0.9rem;
+$navbar-dropdown-nav-font-size: $navbar-nav-item-font-size;
+$subnav-item-font-size: $navbar-nav-item-font-size;
+$nav-primary-item-font-size: 0.95rem;
+$navbar-dropdown-width: 165px;
+$navbar-dropdown-margin: 0;

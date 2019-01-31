@@ -1,15 +1,12 @@
-import * as registerSuite from 'intern/lib/interfaces/object';
-import { assert } from 'chai';
-import { VNode } from '@dojo/interfaces/vdom';
-import HelloWorld from '../../../src/widgets/HelloWorld';
+const { describe, it } = intern.getInterface('bdd');
 
-registerSuite({
-	name: 'HelloWorld',
-	'render'() {
-		const helloWorld = new HelloWorld();
+import { v, w } from '@dojo/framework/widget-core/d';
+import harness from '@dojo/framework/testing/harness';
+import Banner from '../../../src/widgets/Banner';
 
-		const vnode = <VNode> helloWorld.__render__();
-		assert.strictEqual(vnode.vnodeSelector, 'h1');
-		assert.equal(vnode.text, 'Biz-E-Bodies');
-	}
+describe('HelloWorld', () => {
+	it('should render', () => {
+		const h = harness(() => w(Banner, {}));
+		h.expect(() => v('h1', { title: 'I am a title!' }, [ 'Biz-E-Bodies' ]));
+	});
 });
